@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 type Props = {
-  value: string;
+  value: string | null;
+  handleClick?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
 };
 
-const Square = ({ value }: Props) => {
-  return <button className='square'>{value}</button>;
+const Square = ({ value, handleClick }: Props) => {
+  return (
+    <button className='square' onClick={handleClick}>
+      {value}
+    </button>
+  );
 };
 
 export default Square;
